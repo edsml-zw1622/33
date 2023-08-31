@@ -25,7 +25,7 @@ tensorflow 1.13.1 and its install commmand:
 pip install tensorflow = 1.13.1
 ```
 
-The datasets and models download from the driver https://drive.google.com/drive/folders/1xZ0EwvzMOUDQ3Sf4SbuEHRomHNGby4Tw?usp=sharing. The file folder "dataset" is of datasets I have used, and "models" of models which have been trained. The "model_new.h5" is the modified model, and the "model_last_old.h5" is the orginal model. The "mask_rcnn_coco.h5" is a raw model without any training.
+The datasets and models download from the driver https://drive.google.com/drive/folders/1xZ0EwvzMOUDQ3Sf4SbuEHRomHNGby4Tw?usp=sharing. The "model_new.h5" is the modified model, and the "model_last_old.h5" is the orginal model. The "mask_rcnn_coco.h5" is a raw model without any training. And other file folders are the datasets in different format.
 
 Be care, after download, the files should be put into the package, i.e the file folder "code"
 
