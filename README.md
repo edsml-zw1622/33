@@ -2,7 +2,7 @@
 
 ## The code structure 
 
-File folds "assert",  “dataset”, "logs", "mrcn", 
+File folders "assert",  “dataset”, "logs", "mrcn", 
 
 and files "store_data.py" "store_data_test.py" "train.py" "forcast.py" "test.py" "d32.ipynb" "setup.py" "requirments.txt"
 
