@@ -6,15 +6,23 @@ file folds "assert",  “dataset”, "logs", "mrcn",
 
 and files "store_data.py" "store_data_test.py" "train.py" "forcast.py" "test.py" "d32.ipynb" "setup.py" "requirments.txt"
 
-By using the command: 
-```
-pip install ApolloCraterDetectionTool
-```
 
 ### User instructions
 
 ### 📖Package
-After installation, download the model(.pt file) using the download_models.py. 
+Fitst download the code package, and install the keras and tensorflow.
+
+The following versions can work.
+keras 2.24  intastall commmand:
+```
+pip install keras=2.2.4
+```
+
+tensorflow install commmand:
+```
+pip install tensorflow = 1.13.1
+```
+The version of ker
 
 First, in terminal, 
 ```
