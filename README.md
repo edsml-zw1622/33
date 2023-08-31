@@ -1,6 +1,6 @@
 # Bubble recognition and size measure algorithm
 
-### The code structure 
+## The code structure 
 
 file folds "assert",  “dataset”, "logs", "mrcn", 
 
@@ -9,144 +9,83 @@ and files "store_data.py" "store_data_test.py" "train.py" "forcast.py" "test.py"
 The "mrcn" is the network. The "dataset" is the dataset to train or test. "logs" is to store the models in training.  "store_data.py" and "store_data_test.py" are to transform the dataset format(more details are below). "train.py" is to train the model. "forcast.py" is to detection. "test.py" is to output the AP value and PR curve. "d32.ipynb" is to output the Sauter meter diameter， the size distribution of two models and the real values of the test dataset.
 
 ## User instructions
-## dsad
-#### 📖install libaries
+
+### 📖install libaries, and download datasets and models
 
 Fitst download the code package, and install the keras and tensorflow.
 
 The following versions can work.
-keras 2.24  intastall commmand:
+keras 2.2.4 and its  intastall commmand:
 ```
 pip install keras=2.2.4
 ```
 
-tensorflow install commmand:
+tensorflow 1.13.1 and its install commmand:
 ```
 pip install tensorflow = 1.13.1
 ```
-The version of ker
 
-#### 📖 Usage Details
+The datasets and models download from . The file folder "dataset" is of datasets I have used, and "models" of models which have been trained.
 
-First, in terminal, 
-```
-cd package_path + '/DetectionTool'
-```
+Be care, after download, the files should be put into the package, i.e the file folder "code"
 
-Next, run the 
+### 📖 Usage Details
 
-```
-python download_models.py
-```
+### Train
 
-Then it would download a models documnet in the same path, which includes Mars_best.pt, Moon_Left_Model.pt, and Moon_Right_Model.pt files.
+1. When use the dataset I have used, put the data in the "datafile\train" to the file folder "dataset"
 
-Then add the module by running in python:
-```
-from DetectionTool import *
-```
+   Next, run the command
+   ```
+   python train.py
+   ```
+2. When want to use the data prepare by yourself. You need to prepare the data as the format in the files folder "dataset_pic". (More details in Essay)
 
-Congratulation, now you can use the models to detecte the crater in two ways.
-## 1.UI.py
-![Image](https://github.com/edsml-zw1622/33/raw/main/Img/UIInterface.png)
+   Then delete all the data in the filefold dataset" and run the command
+   ```
+   python store_data.py
+   ```
+   After the dataset has been prepared, run the command to train the model.
+   ```
+   python train.py
+   ```
+After training, the file folder "logs" would store the trained models.
 
-## 2.CraterPredictor Class
-Adownload
+### Test (AP and PR curve)
 
-To begin with, you can create an object named detection:
-```
-detection = CraterPredictor(mars_model, moon_model1, moon_model2, results_path, test_images_path, test_labels_path, img_size)
-```
-mars_model is string of path to the mars model weights, moon_model1, moon_model2: string of path to the moon model weights, results_path is string of path to the directory to store the results for the user, test_images_path is the str path to the directory containing the test images, test_labels_path is the string of path to the directory containing the test labels, optionally given by the user, and img_size is the size of the input images.
+1. When use the test dataset I have used, put the data in the "datafile\test" to the file folder "dataset"
 
+   Next, run the command
+   ```
+   python test.py
+   ```
+2. When want to use the data prepare by yourself. You need to prepare the data as the format in the files folder "dataset_pic_test". (More details in Essay)
 
+   Then delete all the data in the filefold dataset" and run the command
+   ```
+   python store_data_test.py
+   ```
+   After the dataset has been prepared, run the command to train the model.
+   ```
+   python test.py
+   ```
+After the running, the result of AP values and the PR curve would be outputted.
 
-### Model class
-This class is about the model detection
+### Forecast
 
-```
-detection.predict_moon_craters_large_images(images)
-```
-This function would slice a large image into the size we want and be saved in the document file, and then be put to detection.
-
-Then in detection, two models could be selected, one is moon model and another is mars.
-
-```
-detection.predict_moon_craters(images)
-```
-Use this function could let function to detect the whole images and return a csv. file in user_directory/detections.file using the moon model.
-
-```
-detection.predict_mars_craters(images)
-```
-Use this function could let function to detect the whole images and return a csv. file in user_directory/detections.file using the moon model.
-
-```
-detection.draw_boxes(label_path=None)
-```
-Use this result to D=draw bounding boxes on images, both ground truth (if provided) and detections and results are saved in 'results_path/images/detections' and 'results_path/images/detections_and_gt'.
-
-```
-detection.get_statistics(self, label_path=None):
-```
-Use this function would save the true positive (tp), false positive (fp), and false negative (fn) values to a csv file. label_path (str): The path to the directory containing the label csv files. If not specified, the function returns without performing any operations.
+   In the code, you can set the parameters of the models path and the test image path. Then run the command
+   ```
+   python forcast.py
+   ```
+   Then the foracst result would be outputted.
 
 
-### Analysis and Visualization class
-```
-convert2physical(img_phy, img_pix, labels, subimg_pix, indices)
-```
-The function is to return the location (lat, lot) based on the information igven by user. `img_phy` is a set of parameters containing real-world, physical image center longitude,latitude, image width, height in degrees, and resolution. `img_pix` represents the number of pixels in each picture. `labels` means the predicted location and size of craters in the picture. `subimg_pix` is the number of pixels in each sub-picture, and `indices`  is the indices of different sub-pictures.
+### Sauter meter diameter & size distribution
 
-```
-size_frequency_plot(crater_size)
-```
-From this function, we can plot a separate plot of the cumulative crater size-frequency distribution of detected craters, if information the `crater size` is provided.
+   In the "d32.ipynb", you can set the parameters of the models path and the test image folder path. Then run the file, it would show the results. (More details in code)
 
-
-
-### Documentation
-
-The code includes [Sphinx](https://www.sphinx-doc.org) documentation. On systems with Sphinx installed, this can be build by running
-
-```
-python -m sphinx docs html
-```
-
-then viewing the generated `index.html` file in the `html` directory in your browser.
-
-For systems with [LaTeX](https://www.latex-project.org/get/) installed, a manual pdf can be generated by running
-
-```bash
-python -m sphinx  -b latex docs latex
-```
-
-Then following the instructions to process the `CraterDetectionTool.tex` file in the `latex` directory in your browser.
-
-### Testing
-
-The tool includes several tests, which you can use to check its operation on your system. With [pytest](https://doc.pytest.org/en/latest) installed, these can be run with
-
-```bash
-python -m pytest --doctest-modules flood_tool
-```
-
-Additionally, we write a test to check our tool.py. You can use it first cd the folder *tests*, and run the **test_tool.py**.
-
-### Reading list
-
- - (Description of lunar impact crater database Robbins, 2019.)
-[https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JE005592]
-
- - (Yolvo5 Model description)
-[https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data]
-
- - (Equirectangular projection descripition)[https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/283357/ILRSpecification2013_14Appendix_C_Dec2012_v1.pdf]
  
  
- 
- ### Lisence
- 
- MIT[https://opensource.org/licenses/MIT]
+
  
  
