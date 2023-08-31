@@ -10,7 +10,7 @@ The "mrcn" is the network. The "dataset" is the dataset to train or test. "logs"
 
 ## User instructions
 
-### 📖install libaries, and download datasets and models
+### 📖Install libaries, and download datasets and models
 
 Fitst download the code package, and install the keras and tensorflow.
 
