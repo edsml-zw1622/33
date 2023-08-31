@@ -1,4 +1,4 @@
-# Crater Detection tool
+# Bubble recognition and size measure algorithm
 
 ### Installation Guide
 
