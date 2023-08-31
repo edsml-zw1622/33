@@ -25,7 +25,7 @@ tensorflow 1.13.1 and its install commmand:
 pip install tensorflow = 1.13.1
 ```
 
-The datasets and models download from . The file folder "dataset" is of datasets I have used, and "models" of models which have been trained.
+The datasets and models download from the driver https://drive.google.com/drive/folders/1xZ0EwvzMOUDQ3Sf4SbuEHRomHNGby4Tw?usp=sharing. The file folder "dataset" is of datasets I have used, and "models" of models which have been trained.
 
 Be care, after download, the files should be put into the package, i.e the file folder "code"
 
