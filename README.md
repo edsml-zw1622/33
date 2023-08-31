@@ -1,4 +1,4 @@
-# Bubble recognition and size measure algorithm
+# Bubble recognition and size measurment algorithm
 
 ## The code structure 
 
