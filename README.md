@@ -15,19 +15,29 @@ The "mrcn" is the network. The "dataset" is the dataset to train or test. "logs"
 Fitst download the code package, and install the keras and tensorflow.
 
 The following versions can work.
-keras 2.2.4 and its  intastall commmand:
+Create an environment in python 3.7.4
 ```
-pip install keras=2.2.4
-```
-
-tensorflow 1.13.1 and its install commmand:
-```
-pip install tensorflow = 1.13.1
+ conda create -n your_environment_name python=3.7.4
 ```
 
-The datasets and models download from the driver https://drive.google.com/drive/folders/1xZ0EwvzMOUDQ3Sf4SbuEHRomHNGby4Tw?usp=sharing. The "model_new.h5" is the modified model, and the "model_last_old.h5" is the orginal model. The "mask_rcnn_coco.h5" is a raw model without any training. And other file folders are the datasets in different format.
+Install packages,
+```
+pip install -r requirements.txt 
+```
 
-Be care, after download, the files should be put into the package, i.e the file folder "code"
+Keras 2.2.4 and its  intastall commmand:
+```
+pip install Keras-2.2.4-py2.py3-none-any.whl
+```
+
+Tensorflow 1.13.1 and its install commmand:
+```
+pip install tensorflow-1.13.1-cp37-cp37m-win_amd64.whl
+```
+
+The "model_new.h5" is the modified model, and the "model_last_old.h5" is the orginal model. The "mask_rcnn_coco.h5" is a raw model without any training. And other file folders are the datasets in different format.
+
+
 
 ### 📖 Usage Details
 
