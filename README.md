@@ -17,7 +17,7 @@ Fitst download the code package, and install the keras and tensorflow.
 The following versions can work.
 Create an environment in python 3.7.4
 ```
- conda create -n your_environment_name python=3.7.4
+conda create -n your_environment_name python=3.7.4
 ```
 
 Install packages,
